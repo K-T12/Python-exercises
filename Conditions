@@ -1,0 +1,59 @@
+##1. Write a program that accepts a real number from a user and then displays if the number is greater than zero or not.
+
+number = float(input())
+if number > 0:
+    print("Your number", number, "is > 0")
+else:
+    print("Your number", liczba1, "is < 0")
+    
+##2. FizzBuzz game.
+# The rules:
+1) Accept an integer from the user
+2) If this number is divisible by 15, write to the screen "FizzBuzz" (with quotation marks)
+3) Otherwise, if this number is divisible by 3, write to the screen "Fizz" (with quotation marks)
+4) Otherwise, if this number is divisible by 5, write "Buzz" to the screen (with quotation marks)
+5) Otherwise, we print this number with quotation marks, for example: "17"
+
+number = int(input())
+if (liczba % 15 == 0):
+    number('"FizzBuzz"')
+elif (liczba % 3 == 0):
+    number('"Fizz"')
+elif(liczba % 5 == 0):
+    number('"Buzz"')
+else:
+    number(f'"{liczba}"')
+
+
+## 3. Write a program that accepts from the user three text strings and prints them from the smallest string to the greatest.
+tekst1 = str(input())
+tekst2 = str(input())
+tekst3 = str(input())
+if tekst1 < tekst2 and tekst1 < tekst3 and tekst2 < tekst3:
+    print(tekst1, tekst2, tekst3)
+elif tekst1 < tekst2 and tekst1 < tekst3 and tekst2 > tekst3:
+    print(tekst1, tekst3, tekst2)
+elif tekst1 > tekst2 and tekst1 < tekst3 and tekst2 < tekst3:
+    print(tekst2, tekst1, tekst3)
+elif tekst1 > tekst2 and tekst1 > tekst3 and tekst2 < tekst3:
+    print(tekst2, tekst3, tekst1)
+elif tekst1 > tekst2 and tekst1 > tekst3 and tekst2 > tekst3:
+    print(tekst3, tekst2, tekst1)
+elif tekst1 < tekst2 and tekst1 > tekst3 and tekst2 > tekst3:
+    print(tekst3, tekst1, tekst2)
+    
+## 4. Consider a basic checkerboard. The chessboard fields should be numbered from 1 to 8 (horizontally and vertically).
+Write a program that will take four numbers from the user to represent the first field and the second, respectively.
+The result of the program is the value True if the fields are of the same color or False otherwise.
+In case of any incorrect data, the program should print an ERROR message and break the program.
+
+l1 = int(input())
+l2 = int(input())
+l3 = int(input())
+l4 = int(input())
+if l1>8 or l1<1 or l2>8 or l2<1 or l3>8 or l3<1 or l4>8 or l4<1:
+    print("ERROR")
+elif (l1+l2+l3+l4) % 2 == 0:
+    print(True)
+else:
+    print(False)
