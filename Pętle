@@ -1,0 +1,224 @@
+ZAD 1
+Napisz program, który wypisze liczby od 1 do n, gdzie n jest podane przez użytkownika. 
+W przypadku błędnych danych program powinien wypisać komunikat BŁĄD oraz zakończyć działanie.
+
+n = int(input())
+for i in range(1,n+1):
+    if n > 0:
+        print(i)
+    else:
+        print("BŁĄD")
+        
+ZAD 2
+Napisz program, który pobierze od użytkownika liczbę całkowitą większa od zera, a następnie pobierze nn słów i wyświetli je na ekran.
+W przypadku nieprawidłowych danych program ma ponownie pobrać dane od użytkownika.
+
+n = -4
+while n <= 0 or n % 1 != 0:
+    n = int(input())
+for i in range(0,n):
+    print(input())
+
+ZAD 3
+Korzystając z tabeli ASCII (patrz poniżej) napisz program, który pobierze od użytkownika dwie liczby a,ba,b oraz wypisze znaki z tabeli ASCII z przedziału a,ba,b. 
+Znaki te mają być oddzielone spacją. Na końcu linii ma być wyłącznie znak nowej linii.
+Funkcja chr(liczba) zamienia liczbę na znak z tabeli ASCII.
+
+a = int(input())
+b = int(input())
+for i in range(a,b+1):
+    print(chr(i), end=" ")
+    
+ZAD 4
+Napisz program, który będzie liczył iloczyn liczb całkowitych wprowadzanych przez użytkownika liczb do momentu wprowadzenia przez użytkownika wartości 0. 
+Program ma wypisać obliczona wartość. W przypadku podania od razu liczby 0 program ma wypisać wartość 1.
+Sample Input 1:
+1
+2
+3
+0
+Sample Output 1:
+6
+
+n = int(input())
+iloczyn = 1
+while n != 0:
+    iloczyn = iloczyn * n
+    n = int(input())
+print(iloczyn)
+
+ZAD 5
+Napisz program, który pobierze od użytkownika liczbę całkowitą większą od zera nn, a następnie wypisze tabelę o nn wierszach i nn kolumnach, 
+w której to każdym ii-tym wierszu będzie występowała wartość ii.
+
+Sample Input:
+4
+Sample Output:
+1 1 1 1
+2 2 2 2
+3 3 3 3
+4 4 4 4
+
+n = int(input())
+for i in range (1,n+1):
+    for k in range(1,n):
+        print(i, end=" ")
+    print(i)
+    
+ZAD 6
+Napisz program, który pobierze dwie liczby całkowite a,ba,b większe od zera i wyświetli następujący prostokąt o długości aa i szerokości bb.
+
+Sample Input 1:
+3
+3
+Sample Output 1:
+
+***
+* *
+***
+Sample Input 2:
+5
+5
+Sample Output 2:
+
+*****
+*   *
+*   *
+*   *
+*****
+
+a = int(input())
+b = int(input())
+for i in range(a): #od 0-4
+    if (i==0):
+        for j in range(b):
+            if (j == b - 1):
+                print("*")
+            else:
+                print("*", end="")
+    elif (i==a-1):
+        for j in range(b):
+                print("*", end="")
+    else:
+        if (b!=1):
+            print("*", end="")
+        for k in range(b-2):
+            print(" ", end="")
+        print("*")
+ 
+ZAD 7
+Napisz program, który pobierze od użytkownika liczbę oraz literę z alfabetu łacińskiego.
+Wynikiem programu mają być nazwy klas w postaci: liczba_litera.
+
+Sample Input 1:
+1
+b
+Sample Output 1:
+1a,1b
+Sample Input 2:
+6
+d
+Sample Output 2:
+1a,1b,1c,1d
+2a,2b,2c,2d
+3a,3b,3c,3d
+4a,4b,4c,4d
+5a,5b,5c,5d
+6a,6b,6c,6d
+
+l = int(input())
+a = input()
+for i in range(1, l+1):
+    for k in range(97, ord(a)+1):
+        if k == ord(a):
+            print(i, chr(k), sep="", end="")
+        else:
+            print(i, chr(k), ",", sep="", end="")
+            
+ZAD 8
+Napisz program, który pobierze od użytkownika liczbę całkowitą nn, a następnie wypisze sumę jej cyfr.
+
+Sample Input:
+1234
+Sample Output:
+10
+
+sum = 0
+n = int(input())
+while n>0:
+    skladowa = n % 10
+    sum = sum + skladowa
+    n = n//10
+print(sum)
+
+ZAD 9
+Napisz program, który będzie pobierał od użytkownika liczby całkowite (co najmniej dwie).
+Zakończenie wprowadzania danych odbędzie się, gdy użytkownik wprowadzi liczbę zero.
+Program ma wypisać ilość par ii, i+1i+1, gdzie ii < i+1i+1. ii oraz i+1i+1 oznacza wczytywane przez użytkownika kolejne liczby.
+
+Przykład:
+2 #i=0
+3 #i=1
+4 #i=2
+5 #i=3
+0
+#Porównujemy pary 2,3;3,4;4,5
+
+Sample Input:
+1
+7
+9
+0
+
+Sample Output:
+2
+
+a = int(input())
+b = int(input())
+sum = 0
+while b!=0:
+    if a<b:
+        sum=sum+1
+    a = b
+    b = int(input())
+print(sum)
+
+ZAD 10
+Napisz program, który będzie pobierał od użytkownika liczbę całkowitą większą od zera aa i będzie wypisywał poniższy wzorek.
+Zakładamy, że nie ma tutaj sytuacji błędnych.
+
+Sample Input 1:
+7
+Sample Output 1:
+*******
+******
+*****
+****
+***
+**
+*
+
+x = "*"
+n = int(input())
+for i in range(n, 0, -1):
+    print(i * x)
+
+ZAD 11
+Liczbą harshad jest to liczba, która jest podzielna przez sumę jego cyfr. Na przykład liczba 24 jest liczbą harshad, ponieważ 2+4 = 6 oraz 24 / 6 = 4. Również liczba 156 jest liczbą harshad, ponieważ 1+5+6 = 12 oraz 156 / 12 = 13.
+Napisz program, który pobierze od użytkownika liczbę i wyświetli informację TAK, jeżeli jest ona liczbą harshad lub NIE w przeciwnym przypadku.
+
+Sample Input:
+24
+Sample Output:
+TAK
+
+n = int(input())
+sum = 0
+while n>0:
+    liczba = n%10
+    sum = sum + liczba
+    n = n//10
+if n % sum == 0:
+    print("TAK")
+else:
+    print("NIE")
