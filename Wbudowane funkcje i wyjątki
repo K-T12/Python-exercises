@@ -1,0 +1,170 @@
+ZAD 1
+Napisz program, który będzie pobierał od użytkownika ciąg tekstowy (do momentu napotkania linii wyłącznie ze znakiem spacji), a następnie wypisze ilość wprowadzonych przez użytkownika słów.
+
+Sample Input:
+ala ma kota
+ala
+kot
+ 
+Sample Output:
+5
+
+words = str(input())
+words_number = 0
+while words != " ":
+    words_list = words.split()
+    words_number = words_number + len(words_list)
+    words = str(input())
+print (words_number)
+
+
+ZAD 2
+Napisz program, odczytujący podany przez użytkownika ciąg tekstowy w formacie dd/mm/rrrr i następnie wyświetli datę w podanym formacie.
+W przypadku niepoprawnej daty program powinien ponownie poprosić użytkownika o podanie daty.
+
+Sample Input 1:
+12/03/2018
+Sample Output 1:
+12 marzec 2018
+Sample Input 2:
+12/13/2018
+12/01/2018
+Sample Output 2:
+12 styczeń 2018
+
+date = input()
+date = date.split("/")
+while date[1] != "01" and date[1] != "02" and date[1] != "03" and date[1] != "04" and date[1] != "05" and date[1] != "06" and date[1] != "07" and date[1] != "08" and date[1] != "09" and date[1] != "10" and date[1] != "11"and date[1] != "12":
+    date = input()
+    date = date.split("/")
+if date[1] == "01":
+    del date[1]
+    date.insert(1,"styczeń")
+elif date[1] == "02":
+    del date[1]
+    date.insert(1,"luty")
+elif date[1] == "03":
+    del date[1]
+    date.insert(1,"marzec")
+elif date[1] == "04":
+    del date[1]
+    date.insert(1,"kwiecień")
+elif date[1] == "05":
+    del date[1]
+    date.insert(1,"maj")
+elif date[1] == "06":
+    del date[1]
+    date.insert(1,"czerwiec")
+elif date[1] == "07":
+    del date[1]
+    date.insert(1,"lipiec")
+elif date[1] == "08":
+    del date[1]
+    date.insert(1,"sierpień")
+elif date[1] == "09":
+    del date[1]
+    date.insert(1,"wrzesień")
+elif date[1] == "10":
+    del date[1]
+    date.insert(1,"październik")
+elif date[1] == "11":
+    del date[1]
+    date.insert(1,"listopad")
+elif date[1] == "12":
+    del date[1]
+    date.insert(1,"grudzień")
+date = " ".join(date)
+print(date)
+
+ZAD 3
+Napisz program, który pobierze od użytkownika tekst, a następnie wypisze następujące statystyki:
+
+Ilość liter
+Ilość cyfr
+Ilość białych znaków
+
+Sample Input:
+ala MA kota
+Sample Output:
+Ilość liter ==  9
+Ilość cyfr ==  0
+Ilość znaków białych ==  2
+
+words = input()
+letters = 0
+digit = 0
+space = 0
+for i in words:
+    if i.isalpha():
+        letters+=1
+    elif i.isnumeric():
+        digit+=1
+    elif i.isspace():
+        space+=1
+       
+print("Ilość liter == ", letters)
+print("Ilość cyfr == ", digit)
+print("Ilość znaków białych == ", space)
+
+ZAD 4
+Napisz program, który usunie n-ty znak niepustego ciągu tekstowego podanego przez użytkownika.
+W przypadku podania nieprawidłowego indeksu program powinien poprosić użytkownika o wczytanie poprawnego indeksu.
+
+Sample Input:
+python
+0
+Sample Output:
+ython
+
+words = list(input())
+index = int(input())
+while index >= len(words) or index < 0:
+    index = int(input())
+del words[index]
+words = "".join(words)
+print(words)
+
+ZAD 5
+Napisz program, który wyjustuje w rozmiarze 10 na lewo/prawo i w centrum daną liczbę podaną przez użytkownika.
+
+Sample Input 1:
+22
+Sample Output 1:
+22        
+        22
+    22    
+Sample Input 2:
+122
+Sample Output 2:
+122       
+       122
+   122  
+   
+number = input()
+print(number.ljust(10))
+print(number.rjust(10))
+print(number.center(10))
+
+ZAD 6
+Napisz program, który pobierze dwie liczby rzeczywiste aa i bb i wyświetli na ekran wynik dzielenia a /ba/b. W przypadku dzielenia przez zero program powinien wyświetlić komunikat: Nie dziel przez zero! W przypadku błędnego sformatowania danych program powinien wypisać komunikat: Błędny format danych wejściowych!
+
+Sample Input 1:
+2
+0
+Sample Output 1:
+Nie dziel przez zero!
+Sample Input 2:
+ala
+2
+Sample Output 2:
+Błędny format danych liczbowych!
+
+try:
+    a = int(input())
+    b = int(input())
+    if b!=0:
+        print (a/b)
+    elif b==0:
+        print("Nie dziel przez zero!")
+except ValueError:
+    print("Błędny format danych liczbowych!")
