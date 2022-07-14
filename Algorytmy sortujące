@@ -1,0 +1,124 @@
+ZAD 1
+Napisz program, który pobierze ciąg napisów (zapisanych w jednej linii oddzielonych spacją) oraz wypisze pary słów, 
+które nie są w odpowiedniej kolejności (w porządku rosnącym) tzn. w parze o indeksach i,j jeżeli i-te słowo jest większe 
+niż j-te słowo to wypisuje parę tych słów (patrz przykłady poniżej). 
+Dla prostoty zadania zakładamy, że słowa te są tej samej długości.
+
+Sample Input:
+ala ada aaa
+Sample Output:
+ala ada
+ada aaa
+
+n = input().split()
+for i in range(len(n)-1):
+    j = i+1
+    if n[i] > n[j]:
+        print(n[i], n[j])
+        
+ZAD 2
+Napisz program, który pobierze ciąg napisów (zapisanych w jednej linii oddzielonych spacją) i sprawdzi 
+czy dany ciąg jest posortowany rosnąco (czyli od najmniejszego słowa do największego).
+Dla prostoty zadania zakładamy, że ciągi te mają słowa tej samej długości.
+
+Sample Input 1:
+ala ada aaa
+Sample Output 1:
+Ciąg nie jest posortowany rosnąco
+Sample Input 2:
+aaa bbb ccc
+Sample Output 2:
+Ciąg jest posortowany rosnąco
+
+n = input().split()
+kupa = 2
+for i in range(len(n)-1):
+    j = i+1
+    if n[i] >= n[j]:
+        kupa = 0
+        # print("Ciąg nie jest posortowany rosnąco")
+if kupa == 0:
+    print("Ciąg nie jest posortowany rosnąco")
+else:
+    print("Ciąg jest posortowany rosnąco")
+    
+ZAD 3
+Napisz program, który pobierze ciąg napisów (zapisanych w jednej linii oddzielonych spacją) 
+posortuje dany ciąg  rosnąco (czyli od najmniejszego słowa do największego) używając do tego metody sortowania bąbelkowego.
+Dla prostoty zadania zakładamy, że ciągi te mają słowa tej samej długości.
+
+Sample Input 1:
+ala ada aaa
+Sample Output 1:
+aaa ada ala
+Sample Input 2:
+aaa ada ala
+Sample Output 2:
+aaa ada ala
+
+n = input().split()
+k = 2
+for k in range(len(n)-1):
+    for i in range(len(n)-1):
+        j = i+1
+        if n[i] > n[j]:
+            n[i], n[j] = n[j], n[i]
+print(*n)
+
+ZAD 4
+Napisz program, który pobierze ciąg napisów (zapisanych w jednej linii oddzielonych spacją) posortuje dany ciąg malejąco 
+(czyli od największego słowa do najmniejszego) używając do tego metody sortowania przez wstawianie.
+
+Dla prostoty zadania zakładamy, że ciągi te mają słowa tej samej długości.
+
+Nie używaj żadnych wbudowanych funkcji sortujących ani odwracających napisy.
+
+Pamiętaj o przesłaniu zadania do oceny i sprawdzenia koledze/koleżance.
+
+Sample Input 1:
+ala ada aaa
+Sample Output 1:
+ala ada aaa
+Sample Input 2:
+aaa ada ala
+Sample Output 2:
+ala ada aaa
+
+napisy = input().split()
+i=0
+while i <= len(napisy)-1:
+    element = napisy[i]
+    k = i-1
+    while k>=0 and napisy[k] < element:
+        napisy[k+1] = napisy[k]
+        k = k-1
+    napisy[k+1]=element
+    i += 1
+print(*napisy)
+
+ZAD 5
+Napisz program, który pobierze ciąg napisów (zapisanych w jednej linii oddzielonych spacją) posortuje dany ciąg rosnąco 
+(czyli od najmniejszego słowa do największego) używając do tego metody sortowania przez wybór.
+Dla prostoty zadania zakładamy, że ciągi te mają słowa tej samej długości.
+
+Sample Input 1:
+ala ada aaa
+Sample Output 1:
+aaa ada ala
+Sample Input 2:
+aaa ada ala
+Sample Output 2:
+aaa ada ala
+
+n = input().split()
+for i in range(0, len(n)):
+    min = n[i]
+    l = i
+    for k in range(i, len(n)):
+        if min > n[k]:
+            min = n[k]
+            l = k
+    n[i], n[l] = n[l], n[i]
+print(*n)
+
+
