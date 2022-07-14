@@ -1,0 +1,163 @@
+ZAD 1
+Napisz funkcje hello_function(), która będzie wyświetlać wiadomość: 
+Witaj w świecie funkcji w Pythonie!!!
+
+def hello_function():
+    print("Witaj w świecie funkcji w Pythonie!!!")
+    
+ZAD 2
+Napisz funkcję get_integer() oraz get_double(), która będzie pobierać od użytkownika odpowiednio liczbę całkowitą oraz rzeczywistą.
+
+def get_integer():
+    a = int(input())
+    return a
+    
+def get_double():
+    b = float(input())
+    return b
+    
+ZAD 3
+Napisz funkcję o nazwie is_even(number), która będzie jako argument przyjmować liczbę całkowitą. Ponadto ma zwracać wartość True, 
+jeżeli liczba ta jest parzysta, a False w przeciwnym przypadku.
+
+def is_even(number):
+    if number % 2 == 0:
+        return True
+    else:
+        return False
+         
+
+def main():
+    number = int(input())
+    is_even(number)
+    
+ZAD 4
+Napisz funkcję is_palindrome(word), która wyrzuci wartość True dla słowa, który jest palindromem lub False w przeciwnym przypadku.
+Weź pod uwagę wielkość liter: litera A i a dla palindromu to jest to samo!!!
+Można skorzystać z gotowej funkcji lower().
+
+def is_palindrome(word):
+    kupa = 2
+    for i in range(len(word)):
+        if word[i].lower() != word[-i-1].lower():
+            return False
+            kupa = 0
+            break
+    if kupa == 2:
+        return True
+
+def main():
+    a = list(input())
+    is_palindrome(a)
+    
+ZAD 5
+Napisz funkcję get_largest_size(words), która jako argument przyjmuje listę słów a w wyniku zwraca długość najdłuższego słowa w liście words.
+
+def get_largest_size(words):
+    max = words[0]
+    for i in range(len(words)):
+        if len(max) < len(words[i]):
+            max = words[i]
+    return len(max)
+    
+ZAD 6
+Napisz funkcję o nazwie get_letter_word(word, index), która pobiera słowo oraz liczbę całkowitą. Wynikiem funkcji jest litera znajdująca się na pozycji, której wartość jest indexem.
+Pamiętaj, że listy w Pythonie rozpoczynają się od wartości 0. Dlatego wywołanie funkcji get_letter_word("a",1) powinno zwrócić "a"!
+W przypadku błędnym program zwraca wartość None.
+
+Przykładowo:
+get_letter_word("a",1) == "a"   
+get_letter_word("a",-1) == None
+
+def get_letter_word(word, index):
+    if index>0 and index <= len(word):
+        return word[index-1]
+    else:
+        return None
+
+def main():
+    w = list(input())
+    l = int(input())
+    get_letter_word(w, l)
+    
+ZAD 7
+Napisz funkcję unique_elements(elements), która będzie zwracać listę z unikalnymi elementami.
+
+Przykładowo:
+unique_elements([1,2,1,1,2]) == [1,2]
+unique_elements(["ala", "ma", "kota", "kota"]) == ["ala", "ma", "kota"]
+
+def unique_elements(lista):
+    k=0
+    while k < len(lista)-1:
+        i=k+1
+        while i < len(lista):
+            if lista[k] == lista[i]:
+                del lista[i]
+            i+=1
+        k+=1
+        unique_elements2(lista)
+    return lista
+def unique_elements2(lista):
+    k=0
+    while k < len(lista)-1:
+        i=k+1
+        while i < len(lista):
+            if lista[k] == lista[i]:
+                del lista[i]
+            i+=1
+        k+=1
+    return lista
+def main():
+    lista1 = input().split()
+    unique_elements(lista1)
+    
+ZAD 8
+Napisz funkcję is_pangram(word), który sprawdza czy dany ciąg tekstowy jest pangramem.
+Pangramem nazywamy ciąg tekstowy, w którym każda litera alfabetu łacińskiego występuje co najmniej raz.
+W przypadku pozytywnej odpowiedzi funkcja powinna zwracać True, w przeciwnym przypadku False.
+
+Przykładowo:
+is_pangram('') == False
+is_pangram('abcdefghijklmnopqrstuvwxyz') == True
+
+def is_pangram(word):
+    alfabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    kupa = 0
+    word = list(word.lower())
+    if len(word) < 26:
+        return False
+    else:
+        for i in range(len(alfabet)):
+            if alfabet[i] not in word:
+                kupa = 2
+                break
+        if kupa == 0:
+            return True
+        else:
+            return False
+
+
+def main():
+    word = input()
+    is_pangram(word)
+    
+    
+ZAD 9
+Napisz funkcje flatten_array(array), która jako argument przyjmuje listę list, a w wyniku zwraca jedną listę.
+
+Przykładowo:
+flatten_array([1,2,3]) = [1,2,3]
+flatten_array([1,[2,3]]) = [1,2,3]
+flatten_array([1,[2,[3]]]) = [1,2,3]
+
+def flatten_array(array):
+    for i in range(len(array)):
+        for i in range(len(array)):
+            if isinstance(array[i], list):
+                lista = array[i]
+                array[i] = lista[0]
+                for j in range(1, len(lista)):
+                    array.append(lista[j])
+    return array
+  
