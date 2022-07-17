@@ -1,0 +1,200 @@
+ZAD 1
+Utwórz funkcję rekurencyjną o nazwie print_rec(n) akceptującą argument w postaci liczby całkowitej nn i wyświetlającą liczby z przedziału od 1 do nn.
+
+def print_rec(n):
+    if n > 0:
+        print_rec(n - 1)
+        print(n)
+        
+ZAD 2
+Utwórz funkcję sum_list(numbers), która jako argument będzie przyjmowała listę liczb. 
+Działanie tej funkcji ma polegać na obliczeniu za pomocą rekurencji sumy wszystkich elementów listy i zwróceniu tej wartości.
+
+def sum_list(numbers):
+    if len(numbers)==0:
+        return 0
+    else:
+        return numbers[0] + sum_list(numbers[1:])
+
+ZAD 3
+Napisz funkcję rekurencyjną max_rec(numbers), który jako argument będzie przyjmowała listę i zwracała wartość największego jej elementu.
+
+Sample Input:
+1 2 3 4 5 6 7 8 9 10
+Sample Output:
+10
+
+def max_rec(numbers):
+    if len(numbers) == 1:
+        return numbers[0]
+    else:
+        return max(numbers[0], max_rec(numbers[1:]))
+        
+ZAD 4
+Napisz funkcję rekurencyjną addList z parametrem dodatkowym, który będzie obliczał sumę liczb listy podanej jako argument tej funkcji.
+Parametrem dodatkowym ma być zwracana suma tej listy.
+
+Sample Input:
+1 2 3
+Sample Output:
+6.0
+
+def addList(numbers, suma):         
+    if len(numbers)==1:
+        suma = numbers[0] + suma
+        print(suma)
+    else:
+        suma=numbers[0]+suma
+        addList(numbers[1:],suma)
+        return ('')
+
+ZAD 5
+Napisz funkcje rekurencyjną print_number, który jako argument przyjmuje liczbę całkowitą. Wynikiem tej funkcji ma być wypisanie kolejnych cyfr tej liczby.
+Sample Input:
+123
+Sample Output:
+123
+
+def print_number(number):
+    if number==0:
+        return ('')
+    print_number(number // 10)
+    print(number%10,end="")
+    
+ZAD 6
+Napisz rekurencyjną funkcje o nazwie flatten_array, który jako argument przyjmuje listę, która może składać się z list. Wynikiem tej funkcji ma być jedna lista (patrz przykłady poniżej).
+Wskazówka: Należy uzyć operatora type, aby sprawdzić czy dany element jest listą lub skorzystać z operatora isInstance.
+
+flatten_array([1,2,3]) = [1,2,3]
+flatten_array([1,[2,3]]) = [1,2,3]
+flatten_array([1,[2,[3]]]) = [1,2,3]
+
+def flatten_array(lista):
+    if lista == []:
+        return lista
+    if isinstance(lista[0], list):
+        return flatten_array(lista[0]) + flatten_array(lista[1:])
+    return lista[:1] + flatten_array(lista[1:])
+    
+ZAD 7
+Wykorzystując metodę dziel i zwyciężaj napisz funkcję min_max, który realizuje odnajdywanie elementu najmniejszego oraz największego.
+Napisz program, który wczytuje listę liczb całkowitych oraz wywołuje funkcję min_max.
+
+Sample Input 1:
+1 2 3 4 5 6 7 8 9 10
+Sample Output 1:
+1 10
+Sample Input 2:
+10 9 8 7 6 5 4 3 2 1
+Sample Output 2:
+1 10
+
+def min_max(lista):
+    if len(lista)==1:
+        print(lista[0],lista[0])
+    else:
+        a=max(max(lista[0:len(lista)//2]),max(lista[len(lista)//2:len(lista)]))
+        b=min(min(lista[0:len(lista) // 2]), min(lista[len(lista) // 2:len(lista)]))
+        print(b,a)
+
+def main():
+    number = list(map(int, input().split()))
+    min_max(number)
+
+main()
+
+
+----------------------------------------------------------------------
+ZAD 8
+Zadanie 12 (0.1 pkt)
+
+Napisz rekurencyjną funkcję palindrom, który jako argument pobierze napis. Wynikiem tej funkcji ma być wynik True/False w zależności czy dany napis jest palindromem czy nie.
+Sample Input:
+kajak
+Sample Output:
+True
+
+ZAD 9
+Zastąp pętlę, używaną w rekurencyjnym algorytmie sortowania bąbelkowego za pomocą rekurencyjnej funkcji o nazwie check_elements. Funkcja ta jako argument przyjmuje listę oraz dwie liczby całkowite aa i bb oznaczające początek i koniec listy. 
+Wywołanie funkcji dla całej tablicy odbywa się dla argumentów a = 0a=0 oraz b = 1b=1
+
+Sample Input:
+1 8 6 4 3 5 10 -2
+Sample Output:
+[1, 6, 4, 3, 5, 8, -2, 10]
+
+ZAD 10
+Napisz funkcję rekurencyjną o nazwie insertion_sort, który jako argument przyjmuje listę słów. Wynikiem funkcji ma być posortowana lista w porządku leksykograficznym rosnąco (czyli od najmniejszego słowa do największego) używając do tego metody sortowania przez wstawianie. Następnie napisz program, który wywoła tę funkcję rekurencyjną
+Idea algorytmu sortowania przez wybór rekurencyjnie znajduje się poniżej
+
+1. Jeśli długość listy jest mniejsza lub równa 1 to zwróć listę
+2. Wywołaj funkcję na liście bez ostatniego elementu
+3. Niech elem będzie ostatnim elementem listy oraz niech j będzie indeksem na przedostatnim elementem listy
+4. Wywołaj pętlę z sortowania przez wstawianie lub jego odpowiednik rekurencyjny, w którym wstawiony będzie poprawnie element elem.
+Dla prostoty zadania zakładamy, że ciągi te mają słowa tej samej długości.
+
+Nie używaj żadnych wbudowanych funkcji sortujących ani odwracających napisy.
+Maximum punktów za pozbycie się wszelkich pętli.
+
+
+Sample Input 1:
+ala ada aaa
+Sample Output 1:
+aaa ada ala
+Sample Input 2:
+aaa ada ala
+Sample Output 2:
+aaa ada ala
+
+
+ZAD 11
+Wykorzystując metodę dziel i zwyciężaj napisz funkcję binary_search(object, start, stop, search), który realizuje odnajdywanie elementu metodą przeszukiwania binarnego.
+Napisz program, który wczytuje listę liczb (nie tylko całkowitych), szukany element oraz wywołuje funkcję binary_search.
+
+Sample Input 1:
+1 2 3 4 5 6 7 8 9 10
+10
+Sample Output 1:
+True
+Sample Input 2:
+1 2 3 4 5 6 7 8 9 10
+11
+Sample Output 2:
+False
+
+ZAD 12
+Napisz funkcję Merge(list1, list2), który będzie dokonywał scalania dwóch uporządkowanych list w jedną uporządkowaną listę.
+Napisz program, który wczytuje dwie uporządkowane listy liczb całkowitych oraz wyświetla wynik funkcji Merge.
+
+Sample Input:
+1 2 3
+4 5 6
+Sample Output:
+1 2 3 4 5 6
+
+ZAD 13
+Napisz program, który metodą sortowania przez scalanie będzie sortował elementy (liczby całkowite) w porządku rosnącym.
+
+Sample Input 1:
+1 5 3 2 0
+Sample Output 1:
+0 1 2 3 5
+Sample Input 2:
+1 2 3 4 5 6 7 8 10 9
+Sample Output 2:
+1 2 3 4 5 6 7 8 9 10
+
+ZAD 14
+Napisz iteracyjną wersję algorytmu binary_search.
+
+Sample Input 1:
+1 2 3 4 5 6 7 8 9 10
+10
+Sample Output 1:
+True
+Sample Input 2:
+1 2 3 4 5 6 7 8 9 10
+11
+Sample Output 2:
+False
+
