@@ -1,0 +1,127 @@
+ZAD 1
+Napisz program, który wykorzystując pakiet NLTK pobierze tekst od użytkownika, a w wyniku programu ma być ilość zdań oraz wypisanie każdego ze zdań w osobnej linii.
+
+Przykładowy Input: The sky is blue. The sky is yellow.
+
+Przykładowy Output: Ilość zdań: 2
+
+The sky is blue.
+
+The sky is yellow.
+
+from nltk.tokenize import sent_tokenize
+text = input()
+print(len(sent_tokenize(text)))
+print(*sent_tokenize(text), sep="\n")
+
+ZAD 2
+Napisz program, który wykorzystując pakiet NLTK pobierze tekst od użytkownika,
+a w wyniku programu ma być ilość zdań oraz wypisanie ilości słów z każdego ze zdań.
+
+Cats are weird creatures. They often hunt for souls. Cats are vicious. And evil. But cute.
+UFOs are real and the government knows it. Aliens are among us. Extraterrestrial life is awesome.
+
+from nltk.tokenize import sent_tokenize
+text = input()
+tok_sent = sent_tokenize(text)
+print('The number of sentences:', len(tok_sent))
+for i in range(len(tok_sent)):
+    words_number = tok_sent[i].split()
+    print(len(words_number))
+    
+ZAD 3
+Napisz program, który wykorzystując pakiet NLTK pobierze tekst od użytkownika,
+a w wyniku programu ma być ilość zdań oraz wypisanie każdego ze zdań w osobnej linii dla innego języka niż angielski, francuski i polski.
+
+Ich liebe Katzen. Aber Hunde sind besser. Fische stinken.
+Butter ist heutzutage unglaublich teuer. Dies ist eine sehr traurige Situation. Es erfordert staatliches Eingreifen und die vereinten Kräfte von Donuts. Lang leben die Donuts.
+
+import nltk
+from nltk.tokenize import sent_tokenize
+german_tokenizer = nltk.data.load('tokenizers/punkt/german.pickle')
+text = input()
+print(len(sent_tokenize(text)))
+print(*sent_tokenize(text), sep="\n")
+
+ZAD 4
+Za pomocą pakietu NLTK napisz program, który zliczy ilość słów danego zdania oraz wypisze listę tych słów.
+Zakładamy że słowo np. don't jest dwoma słowami: do oraz n't.
+
+I DON'T KNOW THIS ONE
+import nltk
+# from nltk.tokenize import word_tokenize
+from nltk.tokenize import sent_tokenize
+from nltk.corpus import stopwords
+stopsEnglish = stopwords.words('english')
+noStopWords = []
+text = input()
+tok_sent = sent_tokenize(text)
+w_tok = word_tokenize(text)
+for word in text:
+    if word not in stopsEnglish:
+        wordsWithoutStops.append(word)
+# print('Number of words:', len(w_tok))
+# print(w_tok)
+for i in tok_sent:
+    a = word_tokenize(i)
+    if '.' and '!' and '?' and ',' in word_tokenize():
+        tok_sent.remove(i)
+        print(word_tokenize(i))
+    print('Number of words:', len(word_tokenize(i)))
+    
+ZAD 5
+Za pomocą pakietu NLTK sprawdź dla jakich języków istnieją stopwords.
+
+from nltk.corpus import stopwords
+print(*stopwords.fileids(), sep='\n')
+
+ZAD 6
+Za pomocą pakietu NLTK napisz program, który pobierze od użytkownika tekst,
+a w wyniku programu wypisze ilość słów oraz ilość słów bez słów z listy stopwords.
+
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+stopsEnglish = stopwords.words('english')
+noStopWords = []
+text = input()
+w_tok = word_tokenize(text)
+for word in w_tok:
+    if word not in stopsEnglish:
+        noStopWords.append(word)
+print('Number of words: ', len(w_tok))
+print('Number of words without stopwords: ', len(noStopWords))
+
+---------------------------------------------------------------------
+ZAD 7
+Za pomocą pakietu NLTK oraz WordNet odpowiedz na następujące pytania:
+
+Jaka jest definicja synsetu słowa angel
+Jakie są synonimy słowa angel
+Jakie są antonimy słowa angel
+Ile rzeczowników oraz czasowników występuje dla słowa: bite.
+Jaki jest główny korzeń dla słowa angel
+Jaka jest ścieżka od korzenia do słowa devil.
+
+
+ZAD 8
+Za pomocą pakietu NLTK oraz corpusu Gutenberg odpowiedz na następujące pytania:
+
+Wypisze 10 najczęściej występujących słów dla książki Hamlet (shakespeare-hamlet.txt)
+Wypisze ilość zdań oraz słów dla ksiązki Makbet (shakespeare-macbeth.txt). Nie uwzględniamy tutaj wielkości liter. Słowo don't traktujemy jako dwa słowa.
+Wypisze ilość słów (bez stopwords) dla książki Caesar (shakespeare-ceasar.txt). Nie uwzględniamy tutaj wielkości liter. Słowo don't traktujemy jako dwa słowa.
+Sporządzi wykres najczęściej 5 występujących słów dla wszystkich powyższych trzech książek
+Wypisze procent występowania stopwords w każdej z powyższej książek.
+Wypisze pierwszych 10 trigramów dla ksiązki Hamlet.
+
+ZAD 9
+Za pomocą pakietu NLTK napisz program, który narysuje histogram 10 pierwszych najczęściej występujących słów z projektu Gutenberg książki shakespeare-macbeth.txt
+Wykres powinien zawierać imię i nazwisko jako tytuł i powinien być estetyczny.
+
+ZAD 10
+Za pomocą pakietu NLTK napisz program, który zliczy ilość słów danego zdania oraz wypisze listę tych słów. Zakładamy że słowo np. don't jest dwoma słowami: do oraz n't.
+
+
+
+
+
