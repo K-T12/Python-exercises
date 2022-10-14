@@ -1,8 +1,10 @@
-ZAD 1
+Ex 1
 Trolls are attacking your comment section!
 A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
 Your task is to write a function that takes a string and return a new string with all vowels removed.
 For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+----------------------------------------
 
 def disemvowel(string_):
     import re
@@ -12,3 +14,33 @@ def disemvowel(string_):
         if re.search(pattern, string_):
             disemvoweled_text = re.sub(pattern, "",  disemvoweled_text)
     return disemvoweled_text
+    
+    
+Ex 2
+The goal of this exercise is to convert a string to a new string where each character in the new string is "(" 
+if that character appears only once in the original string, or ")" 
+if that character appears more than once in the original string. 
+Ignore capitalization when determining if a character is a duplicate.
+
+"din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))(("
+
+--------------------------------------
+
+def duplicate_encode(word):
+    word = word.lower()
+    word1 = ""
+    for i in word:
+        if word.count(i)==1:
+            word1 =+ "("
+        else:
+            word1 =+ ")"
+    return(word1)
+    
+Ex 3
+Write a function that takes an integer as input, and returns the number of bits that are equal to one in the binary representation of that number. 
+You can guarantee that input is non-negative.
+
+Example: The binary representation of 1234 is 10011010010, so the function should return 5 in this case
