@@ -5,12 +5,12 @@ Your task is to write a function that takes a string and return a new string wit
 For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
 
 
-def disemvowel(string_):
+def disemvowel(string):
     import re
-    disemvoweled_text = string_
+    disemvoweled_text = string
     pattern = "(a|e|i|o|u|A|E|I|O|U)+"
-    for i in string_:
-        if re.search(pattern, string_):
+    for i in string:
+        if re.search(pattern, string):
             disemvoweled_text = re.sub(pattern, "",  disemvoweled_text)
     return disemvoweled_text
     
@@ -73,4 +73,17 @@ def count_bits(n):
         if i == "1":
             m += 1
     return m
+    
+
+Ex 5
+Complete the solution so that it splits the string into pairs of two characters. 
+If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+
+Examples:
+
+* 'abc' =>  ['ab', 'c_']
+* 'abcdef' => ['ab', 'cd', 'ef']
+
+
+
 
