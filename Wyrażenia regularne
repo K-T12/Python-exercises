@@ -296,16 +296,5 @@ Sample Input:
 Sample Output:
 0 3
 
-def solution(s):
-    import re
-    pattern = "[a-zA-Z_]{2}"
-    empty = []
-    if (len(s))//2 != 0 or len(s) == 1:
-        s += "_"
-        print(s)
-    match = re.findall(pattern, s)
-    if s == "":
-        return empty
-    if match:
-        return match
+
 
