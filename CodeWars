@@ -96,5 +96,13 @@ def solution(s):
         return empty
     if match:
         return match
+----------------------------------------
+ALTERNATIVE:
 
+import re
+
+def solution(s):
+    return re.findall('..', s + '_')
+
+-----------------------------------------
 
