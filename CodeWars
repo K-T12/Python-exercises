@@ -150,4 +150,9 @@ def create_phone_number(n):
     for i in range(len(n)):
         n[i] = str(n[i])
     return "".join(n)
+    
+OR
+    
+def create_phone_number(n):
+	return "({}{}{}) {}{}{}-{}{}{}{}".format(*n)
 
