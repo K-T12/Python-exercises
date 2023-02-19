@@ -272,3 +272,54 @@ def alphabet_position(text):
             text_final.append(str(number))
     return " ".join(text_final)
 
+
+EX 13
+Complete the solution so that it strips all text that follows any of a set of comment markers passed in. Any whitespace at the end of the line should also be stripped out.
+
+Example:
+
+Given an input string of:
+
+apples, pears # and bananas
+grapes
+bananas !apples
+
+The output expected would be:
+
+apples, pears
+grapes
+bananas
+
+
+
+def strip_comments(strng, markers):
+    lever = "ON"                   
+    strng2=""
+    k=0
+    import re
+    pattern= "\s+"
+    for i in strng:                
+        if i in markers:           
+            lever = "OFF"
+        if (i == " " or i =="\t") and (strng[k+1] == "\n" or strng[k+1] in markers):
+            lever = "OFF"
+        if i == "\n":
+            lever = "ON"
+        if lever == "ON":
+            strng2 += i
+        k+=1
+    for m in strng2:
+        for k in markers:
+            match = re.sub(pattern, "", strng2)
+    return strng2                  
+           
+
+OR
+
+def solution(string,markers):
+    s = string.splitlines()
+    for i in range(len(s)):
+        for j in markers:
+            if j in s[i]:
+                s[i] = s[i][:s[i].index(j)].rstrip()     #od początku do index(j). .index() <--- wyświetla który index ma dany element
+    return "\n".join(s)
